@@ -1,0 +1,8 @@
+*:not(pre) { font-family: Roboto, sans-serif; }
+* {
+	box-sizing: inherit;
+	color: #444;
+	font-size: 14pt;
+}
+body { padding: 20px; }
+.bold { font-weight: bold; }
