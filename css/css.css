@@ -1,6 +1,6 @@
-html, body { height: calc(100% - 28px); width: calc(100% - 29px); background-color: #FBFDFF; }
-html { background-color: #EEE; }
-body { margin: 7px 0px 0px 7px; border: 1px solid #7A8A99; border-radius: 3px; padding: 5px; background-image: url(../img/marca-d-agua.png); background-repeat: no-repeat; background-position: center; }
+html { background-color: #EEE; padding: 6px }
+body { background-color: #FBFDFF; }
+body { margin: 0; border: 1px solid #7A8A99; border-radius: 2px; padding: 25px; background-image: url(../img/marca-d-agua.png); background-repeat: no-repeat; background-position: center; }
 hr { border-style: outset; clear: both; opacity: 0.5; }
 hr.ll { opacity: 0.25; }
 
@@ -10,5 +10,4 @@ hr.ll { opacity: 0.25; }
 	color: #444;
 	font-size: 14pt;
 }
-body { padding: 20px; }
 .bold { font-weight: bold; }

@@ -1,10 +1,21 @@
 table { border-collapse: collapse; }
 
-table.opcoes th { width: 100px; text-align: left; background-color: rgba(240, 248, 255, 0.75); padding: 10px; }
+table.opcoes tr th { width: 100px; text-align: left; background-color: rgba(240, 248, 255, 0.75); border: 1px solid rgba(169, 169, 169, 0.5); padding: 10px; }
+table.opcoes tr td { background-color: rgba(240, 248, 255, 0.25); border: 1px solid rgba(169, 169, 169, 0.5); }
 
-table.notas { margin: auto; }
-table.notas td {
+table.notas { margin: auto; border: 1px solid rgba(169, 169, 169, 0.5); }
+table.notas tr td {
 	width: 40px;
 	height: 40px;
 	text-align: center;
 }
+
+table.notas tr:nth-child(1) td:nth-child(1), table.notas tr:nth-child(1) td:nth-child(3), table.notas tr:nth-child(1) td:nth-child(5), table.notas tr:nth-child(1) td:nth-child(6), table.notas tr:nth-child(1) td:nth-child(8), table.notas tr:nth-child(1) td:nth-child(10), table.notas tr:nth-child(1) td:nth-child(12),
+table.notas tr:nth-child(2) td:nth-child(1), table.notas tr:nth-child(2) td:nth-child(3), table.notas tr:nth-child(2) td:nth-child(4), table.notas tr:nth-child(2) td:nth-child(6), table.notas tr:nth-child(2) td:nth-child(8), table.notas tr:nth-child(2) td:nth-child(10), table.notas tr:nth-child(2) td:nth-child(11),
+table.notas tr:nth-child(3) td:nth-child(1), table.notas tr:nth-child(3) td:nth-child(2), table.notas tr:nth-child(3) td:nth-child(4), table.notas tr:nth-child(3) td:nth-child(6), table.notas tr:nth-child(3) td:nth-child(8), table.notas tr:nth-child(3) td:nth-child(9), table.notas tr:nth-child(3) td:nth-child(11)
+{ background-color: rgba(250, 235, 215, 0.75); }
+
+table.notas tr:nth-child(1) td:nth-child(2), table.notas tr:nth-child(1) td:nth-child(4), table.notas tr:nth-child(1) td:nth-child(7), table.notas tr:nth-child(1) td:nth-child(9), table.notas tr:nth-child(1) td:nth-child(11),
+table.notas tr:nth-child(2) td:nth-child(2), table.notas tr:nth-child(2) td:nth-child(5), table.notas tr:nth-child(2) td:nth-child(7), table.notas tr:nth-child(2) td:nth-child(9), table.notas tr:nth-child(2) td:nth-child(12),
+table.notas tr:nth-child(3) td:nth-child(3), table.notas tr:nth-child(3) td:nth-child(5), table.notas tr:nth-child(3) td:nth-child(7), table.notas tr:nth-child(3) td:nth-child(10), table.notas tr:nth-child(3) td:nth-child(12)
+{ background-color: rgba(250, 235, 215, 0.25); }
