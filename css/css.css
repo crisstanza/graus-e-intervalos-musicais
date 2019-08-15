@@ -7,6 +7,6 @@ hr { border-style: outset; clear: both; opacity: 0.5; }
 hr.ll { opacity: 0.25; }
 
 *:not(pre) { font-family: Roboto, sans-serif; }
-* { box-sizing: inherit; color: #444; font-size: 14pt; }
+* { box-sizing: inherit; color: #333; font-size: 14pt; }
 
 .bold { font-weight: bold; }
