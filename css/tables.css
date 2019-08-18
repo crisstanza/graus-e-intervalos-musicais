@@ -11,3 +11,6 @@ table.notas tr td.hl { color: initial; font-weight: bold; }
 
 table.notas tr td.natural { background-color: rgba(250, 235, 215, 0.75); }
 table.notas tr td.acidente { background-color: rgba(250, 235, 215, 0.25); font-size: 12pt; }
+
+table.notas tr td.bold { background-image: url(../img/fundo-nota-atual.png); color: #A52A2A; }
+table.notas tr td.root { background-image: url(../img/fundo-nota-atual-root.png); text-decoration: underline overline; }

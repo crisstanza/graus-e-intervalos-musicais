@@ -1,11 +1,11 @@
 var ROOTS_INDEX = {
-	'c': 0,
-	'd': 2,
-	'e': 4,
-	'f': 5,
-	'g': 7,
-	'a': 9,
-	'b': 12
+	'c': [0, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+	'd': [2, 1, 0, 11, 10, 9, 8, 7, 6, 5, 4, 3],
+	'e': [4, 3, 2, 1, 0, 11, 10, 9, 8, 7, 6, 5],
+	'f': [5, 4, 3, 2, 1, 0, 11, 10, 9, 8, 7, 6],
+	'g': [7, 6, 5, 4, 3, 2, 1, 0, 11, 10, 9, 8],
+	'a': [9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 11, 10],
+	'b': [11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0],
 };
 
 var GREEK_MODES_INTERVALS = {
@@ -25,10 +25,24 @@ function updateNotas(event) {
 	$.forEach(trs, function(tr, indexTr) {
 		let tds = tr.querySelectorAll('td');
 		$.forEach(tds, function(td, indexTd) {
-			$.addClass(td, 'bold');
+			$.delClass(td, 'bold');
+			$.delClass(td, 'root');
 		});
 	});
-	// console.log(currentRoot, currentGreekMode);
+	let interval = GREEK_MODES_INTERVALS[currentGreekMode.value];
+	let currentRootValue = currentRoot.value;
+	$.forEach(trs, function(tr, indexTr) {
+		let tds = tr.querySelectorAll('td');
+		let rootsIndex = ROOTS_INDEX[currentRootValue][indexTr];
+		for (let i = 0 ; i < interval.length ; i++) {
+			$.addClass(tds[rootsIndex], 'bold');
+			if (rootsIndex == ROOTS_INDEX[currentRootValue][indexTr]) {
+				$.addClass(tds[rootsIndex], 'root');
+			}
+			rootsIndex += interval[i];
+			rootsIndex %= 12;
+		}
+	});
 }
 
 (function() {
