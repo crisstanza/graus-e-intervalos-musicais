@@ -55,6 +55,22 @@ if (!io.github.crisstanza.Autos) io.github.crisstanza.Autos = {};
 		return elements;
 	};
 
+	io.github.crisstanza.Autos.initChecks = function(obj) {
+		let elements = document.querySelectorAll('input[type="checkbox"][name]:not([name=""])');
+		if (elements) {
+			let parent = obj ? 'obj.' : '';
+			let length = elements.length;
+			for (let i = 0 ; i < length ; i++) {
+				let element = elements[i];
+				let name = element.getAttribute('name');
+				let identifier = fixId(name);
+				element.addEventListener('click', function(event) {
+					eval(parent+identifier+'_OnClick(event)');
+				});
+			}
+		}
+		return elements;
+	};
 
 	function fixId(str) {
 		let parts = str.split('-');

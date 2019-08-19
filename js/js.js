@@ -35,15 +35,22 @@ function updateNotas(event) {
 	$.forEach(trs, function(tr, indexTr) {
 		let tds = tr.querySelectorAll('td');
 		let rootsIndex = ROOTS_INDEX[currentRootValue][indexTr];
-		for (let i = 0 ; i < interval.length ; i++) {
+		if (interval.length == 0) {
 			let td = tds[rootsIndex];
 			$.delClass(td, 'll');
 			$.addClass(td, 'bold');
-			if (rootsIndex == ROOTS_INDEX[currentRootValue][indexTr]) {
-				$.addClass(tds[rootsIndex], 'root');
+			$.addClass(tds[rootsIndex], 'root');
+		} else {
+			for (let i = 0 ; i < interval.length ; i++) {
+				let td = tds[rootsIndex];
+				$.delClass(td, 'll');
+				$.addClass(td, 'bold');
+				if (rootsIndex == ROOTS_INDEX[currentRootValue][indexTr]) {
+					$.addClass(td, 'root');
+				}
+				rootsIndex += interval[i];
+				rootsIndex %= 12;
 			}
-			rootsIndex += interval[i];
-			rootsIndex %= 12;
 		}
 	});
 }
@@ -65,6 +72,7 @@ function updateNotas(event) {
 
 	function window_Load(event) {
 		Autos.initRadios(new RadiosControl());
+		Autos.initChecks(new ChecksControl());
 		initLayoutNotas(event);
 		updateNotas(event);
 	}
