@@ -30,25 +30,25 @@ function updateNotas(event) {
 			$.addClass(td, 'll');
 		});
 	});
-	let interval = currentGreekMode ? GREEK_MODES_INTERVALS[currentGreekMode.value] : [];
+	let intervalGreekMode = currentGreekMode ? GREEK_MODES_INTERVALS[currentGreekMode.value] : [];
 	let currentRootValue = currentRoot.value;
 	$.forEach(trs, function(tr, indexTr) {
 		let tds = tr.querySelectorAll('td');
 		let rootsIndex = ROOTS_INDEX[currentRootValue][indexTr];
-		if (interval.length == 0) {
+		if (intervalGreekMode.length == 0) {
 			let td = tds[rootsIndex];
 			$.delClass(td, 'll');
 			$.addClass(td, 'bold');
 			$.addClass(tds[rootsIndex], 'root');
 		} else {
-			for (let i = 0 ; i < interval.length ; i++) {
+			for (let i = 0 ; i < intervalGreekMode.length ; i++) {
 				let td = tds[rootsIndex];
 				$.delClass(td, 'll');
 				$.addClass(td, 'bold');
 				if (rootsIndex == ROOTS_INDEX[currentRootValue][indexTr]) {
 					$.addClass(td, 'root');
 				}
-				rootsIndex += interval[i];
+				rootsIndex += intervalGreekMode[i];
 				rootsIndex %= 12;
 			}
 		}
