@@ -1,7 +1,7 @@
 html { background-color: #EEE; padding: 6px }
 
 body { background-color: #FBFDFF; }
-body { margin: 0; border: 1px solid #7A8A99; border-radius: 2px; padding: 25px; background-image: url(../img/marca-d-agua.png); background-repeat: no-repeat; background-position: center; }
+body { margin: 0; border: 1px solid #7A8A99; border-radius: 2px; padding: 25px; padding-bottom: 15px; background-image: url(../img/marca-d-agua.png); background-repeat: no-repeat; background-position: center; }
 
 hr { border-style: outset; clear: both; opacity: 0.5; }
 hr.ll { opacity: 0.25; }
