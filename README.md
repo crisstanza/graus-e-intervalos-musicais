@@ -1,4 +1,4 @@
-# graus-e-intervalos-musicais
-Tabela de graus e intervalos musicais.
+# Modos Gregos e Intervalos Musicais
+Tabela de intervalos musicais (graus) e Modos Gregos.
 
->> https://crisstanza.github.io/graus-e-intervalos-musicais/
+>> https://crisstanza.github.io/modos-gregos-e-intervalos-musicais/
