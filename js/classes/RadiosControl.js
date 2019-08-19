@@ -9,6 +9,10 @@ RadiosControl.prototype.greekModes_OnClick = function(event) {
 	updateNotas(event);
 };
 
-RadiosControl.prototype.intervals_OnClick = function(event) {
+RadiosControl.prototype.intervals1_OnClick = function(event) {
+	updateNotas(event);
+};
+
+RadiosControl.prototype.intervals2_OnClick = function(event) {
 	updateNotas(event);
 };

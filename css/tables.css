@@ -6,6 +6,8 @@ table.opcoes tr td label.root { text-decoration: underline overline; color: #A52
 table.opcoes tr td label.note { color: #A52A2A; }
 table.opcoes tr th, table.opcoes tr td { padding: 10px; }
 
+table.opcoes tr td label, table.notas tr td label { white-space: nowrap; }
+
 table.notas { margin: auto; border: 1px solid rgba(169, 169, 169, 0.5); }
 table.notas tr td { width: 40px; height: 40px; text-align: center; color: #555; }
 

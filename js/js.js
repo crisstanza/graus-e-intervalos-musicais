@@ -47,11 +47,11 @@ function updateNotas(event) {
 	let currentGreekMode = tdGreekMode.querySelector('[type=radio][name=greek-modes]:checked');
 	$.addClass($.parent(currentGreekMode, 'label'), 'note');
 
-	let allIntervals = tdIntervals.querySelectorAll('[type=checkbox][name=intervals], [type=radio][name=intervals]');
+	let allIntervals = tdIntervals.querySelectorAll('[type=checkbox][name=intervals], [type=radio][name^=intervals]');
 	$.forEach(allIntervals, function(interval, index) {
 		$.delClass($.parent(interval, 'label'), 'note');
 	});
-	let currentIntervals = tdIntervals.querySelectorAll('[type=checkbox][name=intervals]:checked, [type=radio][name=intervals]:checked');
+	let currentIntervals = tdIntervals.querySelectorAll('[type=checkbox][name=intervals]:checked, [type=radio][name^=intervals]:checked');
 	$.forEach(currentIntervals, function(interval, index) {
 		$.addClass($.parent(interval, 'label'), 'note');
 	});
