@@ -18,14 +18,49 @@ var GREEK_MODES_INTERVALS = {
 	'locrio': [1, 2, 2, 1, 2, 2, 2]
 };
 
+var INTERVALS = {
+	'2m': 1,
+	'2M': 2,
+	'3m': 3,
+	'3M': 4,
+	'4': 5,
+	'4a': 6,
+	'5': 7,
+	'5a': 8,
+	'6M': 9,
+	'7m': 10,
+	'7M': 11
+};
+
 function updateNotas(event) {
+	let allRoots = tdRoot.querySelectorAll('[type=radio][name=roots]');
+	$.forEach(allRoots, function(root, index) {
+		$.delClass($.parent(root, 'label'), 'root');
+	});
 	let currentRoot = tdRoot.querySelector('[type=radio][name=roots]:checked');
+	$.addClass($.parent(currentRoot, 'label'), 'root');
+
+	let allGreekModes = tdGreekMode.querySelectorAll('[type=radio][name=greek-modes]');
+	$.forEach(allGreekModes, function(greekMode, index) {
+		$.delClass($.parent(greekMode, 'label'), 'note');
+	});
 	let currentGreekMode = tdGreekMode.querySelector('[type=radio][name=greek-modes]:checked');
+	$.addClass($.parent(currentGreekMode, 'label'), 'note');
+
+	let allIntervals = tdIntervals.querySelectorAll('[type=checkbox][name=intervals]');
+	$.forEach(allIntervals, function(interval, index) {
+		$.delClass($.parent(interval, 'label'), 'note');
+	});
+	let currentIntervals = tdIntervals.querySelectorAll('[type=checkbox][name=intervals]:checked');
+	$.forEach(currentIntervals, function(interval, index) {
+		$.addClass($.parent(interval, 'label'), 'note');
+	});
+
 	let trs = tbNotas.querySelectorAll('tr');
 	$.forEach(trs, function(tr, indexTr) {
 		let tds = tr.querySelectorAll('td');
 		$.forEach(tds, function(td, indexTd) {
-			$.delClass(td, 'bold');
+			$.delClass(td, 'note');
 			$.delClass(td, 'root');
 			$.addClass(td, 'll');
 		});
@@ -38,13 +73,13 @@ function updateNotas(event) {
 		if (intervalGreekMode.length == 0) {
 			let td = tds[rootsIndex];
 			$.delClass(td, 'll');
-			$.addClass(td, 'bold');
+			$.addClass(td, 'note');
 			$.addClass(tds[rootsIndex], 'root');
 		} else {
 			for (let i = 0 ; i < intervalGreekMode.length ; i++) {
 				let td = tds[rootsIndex];
 				$.delClass(td, 'll');
-				$.addClass(td, 'bold');
+				$.addClass(td, 'note');
 				if (rootsIndex == ROOTS_INDEX[currentRootValue][indexTr]) {
 					$.addClass(td, 'root');
 				}
@@ -52,6 +87,18 @@ function updateNotas(event) {
 				rootsIndex %= 12;
 			}
 		}
+	});
+	$.forEach(trs, function(tr, indexTr) {
+		let tds = tr.querySelectorAll('td');
+		$.forEach(currentIntervals, function(checkedInterval, index) {
+			let rootIndex = ROOTS_INDEX[currentRootValue][indexTr];
+			let currentInterval = INTERVALS[checkedInterval.value];
+			let intervalIndex = rootIndex + currentInterval;
+			intervalIndex %= 12;
+			let td = tds[intervalIndex];
+			$.delClass(td, 'll');
+			$.addClass(td, 'note');
+		});
 	});
 }
 

@@ -78,4 +78,54 @@ if (!$) var $ = {};
 		}
 	};
 
+	$.parent = function(element, tag) {
+		if (element) {
+			var parent = element.parentNode;
+			if (parent) {
+				if (tag) {
+					if (parent.nodeType == 1) {
+						if (parent.tagName.toLowerCase() == tag) {
+							return parent;
+						} else {
+							return $.parent(parent, tag);
+						}
+					} else {
+						return $.parent(parent, tag);
+					}
+				} else {
+					return parent;
+				}
+			} else {
+				return null;
+			}
+		} else {
+			return null;
+		}
+	};
+
+	$.previous = function(element, tag) {
+		if (element) {
+			var previous = element.previousSibling;
+			if (previous) {
+				if (tag) {
+					if (previous.nodeType == 1) {
+						if (previous.tagName.toLowerCase() == tag) {
+							return previous;
+						} else {
+							return $.previous(previous, tag);
+						}
+					} else {
+						return $.previous(previous, tag);
+					}
+				} else {
+					return previous;
+				}
+			} else {
+				return null;
+			}
+		} else {
+			return null;
+		}
+	};
+
 })();

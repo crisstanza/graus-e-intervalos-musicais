@@ -2,6 +2,8 @@ table { border-collapse: collapse; }
 
 table.opcoes tr th { width: 100px; text-align: left; background-color: rgba(240, 248, 255, 0.75); border: 1px solid rgba(169, 169, 169, 0.5); }
 table.opcoes tr td { background-color: rgba(240, 248, 255, 0.25); border: 1px solid rgba(169, 169, 169, 0.5); }
+table.opcoes tr td label.root { text-decoration: underline overline; color: #A52A2A; }
+table.opcoes tr td label.note { color: #A52A2A; }
 table.opcoes tr th, table.opcoes tr td { padding: 10px; }
 
 table.notas { margin: auto; border: 1px solid rgba(169, 169, 169, 0.5); }
@@ -12,6 +14,6 @@ table.notas tr td.hl { color: initial; font-weight: bold; }
 table.notas tr td.natural { background-color: rgba(250, 235, 215, 0.75); }
 table.notas tr td.acidente { background-color: rgba(250, 235, 215, 0.25); font-size: 12pt; }
 
-table.notas tr td.bold { background-image: url(../img/fundo-nota-atual.png); color: #A52A2A; }
+table.notas tr td.note { background-image: url(../img/fundo-nota-atual.png); font-weight: bold; color: #A52A2A; }
 table.notas tr td.root { background-image: url(../img/fundo-nota-atual-root.png); text-decoration: underline overline; }
 table.notas tr td.ll { opacity: 0.5; }
