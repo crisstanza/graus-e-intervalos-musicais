@@ -22,6 +22,35 @@ if (!io.github.crisstanza.UnRadio) io.github.crisstanza.UnRadio = {};
 		}
 	};
 
+	io.github.crisstanza.UnRadio.parent = function(element, tag) {
+		if (element) {
+			var parent = element.parentNode;
+			if (parent) {
+				if (tag) {
+					if (parent.nodeType == 1) {
+						if (parent.tagName.toLowerCase() == tag) {
+							if (parent.getAttribute('data-unradio') == 'true') {
+								return parent;
+							} else {
+								return io.github.crisstanza.UnRadio.parent(parent, tag);	
+							}
+						} else {
+							return io.github.crisstanza.UnRadio.parent(parent, tag);
+						}
+					} else {
+						return io.github.crisstanza.UnRadio.parent(parent, tag);
+					}
+				} else {
+					return parent;
+				}
+			} else {
+				return null;
+			}
+		} else {
+			return null;
+		}
+	};
+
 	function allowUncheckSpace(event) {
 		if (event.keyCode == KEY_SPACE) {
 			let radio = event.target;

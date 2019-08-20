@@ -32,7 +32,17 @@ var INTERVALS = {
 	'7M': 11
 };
 
+var UNISONS = {
+	'C#': 'Db',
+	'D#': 'Eb',
+	'F#': 'Gb',
+	'G#': 'Ab',
+	'A#': 'Bb'
+};
+
 function updateNotas(event) {
+	resetLayoutNotas(event);
+
 	let allRoots = tdRoot.querySelectorAll('[type=radio][name=roots]');
 	$.forEach(allRoots, function(root, index) {
 		$.delClass($.parent(root, 'label'), 'root');
@@ -51,9 +61,14 @@ function updateNotas(event) {
 	$.forEach(allIntervals, function(interval, index) {
 		$.delClass($.parent(interval, 'label'), 'note');
 	});
+	let allIntervalGroups = tdIntervals.querySelectorAll('span[data-unradio=true]');
+	$.forEach(allIntervalGroups, function(intervalGroup, index) {
+		$.delClass(intervalGroup, 'note');
+	});
 	let currentIntervals = tdIntervals.querySelectorAll('[type=checkbox][name=intervals]:checked, [type=radio][name^=intervals]:checked');
 	$.forEach(currentIntervals, function(interval, index) {
 		$.addClass($.parent(interval, 'label'), 'note');
+		$.addClass(io.github.crisstanza.UnRadio.parent(interval, 'span'), 'note');
 	});
 
 	let trs = tbNotas.querySelectorAll('tr');
@@ -96,9 +111,21 @@ function updateNotas(event) {
 			let intervalIndex = rootIndex + currentInterval;
 			intervalIndex %= 12;
 			let td = tds[intervalIndex];
+			if (td.innerHTML.endsWith('#')) {
+				if (checkedInterval.value.endsWith('m') || checkedInterval.value.endsWith('d')) {
+					td.innerHTML = UNISONS[td.innerHTML];
+				}
+			}
 			$.delClass(td, 'll');
 			$.addClass(td, 'note');
 		});
+	});
+}
+
+function resetLayoutNotas(event) {
+	let tds = tbNotas.querySelectorAll('td');
+	$.forEach(tds, function(td, index) {
+		td.innerHTML = td.getAttribute('data-original');
 	});
 }
 
@@ -114,6 +141,7 @@ function updateNotas(event) {
 			} else {
 				$.addClass(td, 'natural');
 			}
+			td.setAttribute('data-original', td.innerHTML);
 		});
 	}
 
